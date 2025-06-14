@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Instalar macOS en VMware con NVDA y VoiceOver</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #222;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  a {
+    color: #2980b9;
+    text-decoration: none;
+  }
+  a:hover, button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  code {
+    background-color: #e8e8e8;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  .step, .faq-item {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  .toggle-button {
+    background: none;
+    border: none;
+    color: #2980b9;
+    font-size: 1.1em;
+    padding: 0;
+    margin: 0 0 10px 0;
+    text-align: left;
+    width: 100%;
+  }
+  .toggle-button:focus {
+    outline: 2px solid #2980b9;
+  }
+  .content {
+    display: none;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Instalar macOS Catalina en VMware con NVDA y VoiceOver</h1>
+
+<p>Este tutorial te guía paso a paso para instalar <strong>macOS Catalina</strong> en <strong>VMware Workstation</strong> en Windows, usar <strong>NVDA</strong> para controlar la máquina virtual y configurar <strong>VoiceOver</strong> dentro de macOS para accesibilidad.</p>
+
+<section class="step">
+  <button aria-expanded="false" aria-controls="descargas-content" class="toggle-button" id="descargas-btn">
+    1. Descargas necesarias
+  </button>
+  <div id="descargas-content" class="content" aria-hidden="true">
+    <ul>
+      <li><a href="https://archive.org/download/mac-os-catalina/macOS%20Catalina.iso" target="_blank" rel="noopener">ISO oficial macOS Catalina (desde Internet Archive - método alternativo)</a></li>
+      <li><a href="https://datajake.braillescreen.net/vmware/VMware-workstation-full-17.6.0-24238078.exe" target="_blank" rel="noopener">VMware Workstation Player (Directorio de jake groxgan)</a></li>
+      <li><a href="https://sourceforge.net/projects/nvda/" target="_blank" rel="noopener">NVDA - lector de pantalla para Windows</a></li>
+      <li><a href="https://support.apple.com/es-mx/guide/voiceover/vo4be8816d70/10/mac/15.0" target="_blank" rel="noopener">Guía oficial de VoiceOver en macOS (Apple)</a></li>
+      <li><a href="https://github.com/paolo-projects/auto-unlocker/releases/download/v2.0.1/Unlocker-v2.0.1-x64.zip" target="_blank" rel="noopener">VMware Unlocker para habilitar macOS en VMware</a></li>
+    </ul>
+    <p><strong>Nota:</strong> Descargar una ISO de macOS directamente no está disponible oficialmente, pero existen métodos legítimos para crearla desde un Mac o mediante herramientas de terceros confiables.</p>
+  </div>
+</section>
+
+<section class="step">
+  <button aria-expanded="false" aria-controls="instalacion-vmware-content" class="toggle-button" id="instalacion-vmware-btn">
+    2. Instalar y preparar VMware Workstation
+  </button>
+  <div id="instalacion-vmware-content" class="content" aria-hidden="true">
+    <ol>
+      <li>Instala <strong>VMware Workstation Pro</strong> desde el instalador descargado.</li>
+      <li>Descarga y ejecuta el <a href="https://github.com/paolo-projects/auto-unlocker/releases/download/v2.0.1/Unlocker-v2.0.1-x64.zip" target="_blank" rel="noopener">VMware Unlocker</a> para habilitar la opción de macOS en VMware. Sigue las instrucciones del repositorio para parchear VMware.</li>
+      <li>Reinicia tu PC para aplicar los cambios.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="step">
+  <button aria-expanded="false" aria-controls="crear-vm-content" class="toggle-button" id="crear-vm-btn">
+    3. Crear la máquina virtual para macOS Catalina
+  </button>
+  <div id="crear-vm-content" class="content" aria-hidden="true">
+    <ol>
+      <li>Abre VMware y elige <code>Crear una nueva máquina virtual</code>.</li>
+      <li>Selecciona <code>Instalar desde imagen ISO</code> y busca la ISO de macOS Catalina.</li>
+      <li>Selecciona <code>Apple Mac OS X</code> y la versión <code>macOS 10.15</code>.</li>
+      <li>Configura la memoria RAM (recomendado mínimo 4 GB) y disco duro (mínimo 40 GB, recomendado SSD para mejor rendimiento).</li>
+      <li>Finaliza la creación de la VM.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="step">
+  <button aria-expanded="false" aria-controls="instalacion-macos-content" class="toggle-button" id="instalacion-macos-btn">
+    4. Instalación de macOS en VMware
+  </button>
+  <div id="instalacion-macos-content" class="content" aria-hidden="true">
+    <ol>
+      <li>Entra a la ruta donde creaste la VM, busca el archivo <code>nombre_de_la_máquina.vmx</code>, dale clic derecho o tecla aplicaciones (Shift + F10) y elige <em>Editar con bloc de notas</em>.</li>
+      <li>Agrega la siguiente línea al final del archivo y guarda:<br><code>smc.version = "0"</code></li>
+      <li>Inicia la VM recién creada.</li>
+      <li>Espera a que aparezca el logotipo de Apple y luego el selector de idioma.</li>
+      <li>Pulsa <kbd>Cmd + F5</kbd> para activar VoiceOver y usa las flechas para buscar "Español".</li>
+      <li>Presiona Tab hasta el botón Continuar y actívalo.</li>
+      <li>Usa las flechas para seleccionar "Utilidad de Discos" y presiona Tab hasta el botón Continuar, luego actívalo.</li>
+      <li>En Utilidad de Discos, selecciona <em>Virtual SATA Hard Drive Media</em>, presiona Tab hasta <em>Borrar</em> y confirma.</li>
+      <li>Asigna un nombre al disco, presiona Tab hasta <em>Borrar</em> y confirma con Espacio, luego presiona <kbd>Cmd + Q</kbd> para salir.</li>
+      <li>Busca con flechas la opción "Instalar macOS Catalina", presiona Tab hasta Continuar y sigue las instrucciones en pantalla.</li>
+      <li>Cuando llegues a la configuración inicial, activa VoiceOver con <kbd>Cmd + F5</kbd> para usarlo en la configuración.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="step">
+  <button aria-expanded="false" aria-controls="configurar-voiceover-content" class="toggle-button" id="configurar-voiceover-btn">
+    5. Cómo usar VoiceOver en macOS
+  </button>
+  <div id="configurar-voiceover-content" class="content" aria-hidden="true">
+    <p>VoiceOver es el lector de pantalla integrado en macOS. Puedes activarlo con <kbd>Cmd + F5</kbd>.</p>
+    <ul>
+      <li>Permite navegar, leer textos, describir botones y más dentro de macOS.</li>
+      <li>Prueba comandos básicos como <kbd>Ctrl + Option + Flecha Derecha</kbd> para moverte entre elementos.</li>
+      <li>Consulta la <a href="https://support.apple.com/es-mx/guide/voiceover/vo4be8816d70/10/mac/15.0" target="_blank" rel="noopener">guía oficial de VoiceOver</a> para más detalles.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="step">
+  <button aria-expanded="false" aria-controls="consejos-content" class="toggle-button" id="consejos-btn">
+    7. Consejos finales
+  </button>
+  <div id="consejos-content" class="content" aria-hidden="true">
+    <ul>
+      <li>Paciencia: la instalación puede tardar y pedir reinicios.</li>
+      <li>Configura el teclado para que las teclas especiales funcionen bien entre Windows y macOS virtualizado.</li>
+      <li>Consulta la comunidad de Apple y foros de VMware para problemas comunes.</li>
+      <li>Guarda tu progreso y usa snapshots en VMware para no perder tu VM configurada.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Preguntas frecuentes (FAQ)</h2>
+
+  <div class="faq-item">
+    <button aria-expanded="false" aria-controls="faq1-content" class="toggle-button" id="faq1-btn">
+      ¿Los gestos del trackpad funcionan?
+    </button>
+    <div id="faq1-content" class="content" aria-hidden="true">
+      <p>No, no funcionan los gestos del trackpad.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button aria-expanded="false" aria-controls="faq2-content" class="toggle-button" id="faq2-btn">
+      ¿Puedo iniciar sesión con mi Apple ID?
+    </button>
+    <div id="faq2-content" class="content" aria-hidden="true">
+      <p>Sí, pero no puedes iniciar sesión con Apple ID en la configuración inicial de macOS virtualizado.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button aria-expanded="false" aria-controls="faq3-content" class="toggle-button" id="faq3-btn">
+      ¿Se puede vincular con el iPhone?
+    </button>
+    <div id="faq3-content" class="content" aria-hidden="true">
+      <p>Si tienes el mismo Apple ID en ambos dispositivos, sí. Se soportarán ciertas funciones.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button aria-expanded="false" aria-controls="faq4-content" class="toggle-button" id="faq4-btn">
+      ¿Puedo instalar apps de la App Store?
+    </button>
+    <div id="faq4-content" class="content" aria-hidden="true">
+      <p>Sí, se puede, pero algunas aplicaciones pueden no funcionar correctamente.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button aria-expanded="false" aria-controls="faq5-content" class="toggle-button" id="faq5-btn">
+      ¿Puedo actualizar macOS?
+    </button>
+    <div id="faq5-content" class="content" aria-hidden="true">
+      <p>Si te atreves, sí, pero existe riesgo de perder configuraciones o datos.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Cw productions, toda la autoría del tutorial reservada y gracias a os betatesters.</p>
+</footer>
+
+<script>
+  // Función para toggle de expandir/contraer con ARIA correcto
+  document.querySelectorAll('.toggle-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const contentId = button.getAttribute('aria-controls');
+      const content = document.getElementById(contentId);
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+
+      button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      content.style.display = expanded ? 'none' : 'block';
+      content.setAttribute('aria-hidden', expanded ? 'true' : 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
