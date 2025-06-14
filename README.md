@@ -7,10 +7,9 @@ Me   llamo Alan. Soy una persona con discapacidad visual, entusiasta de la virtu
 ## Contenido principal
 
 - [Tutoriales](tutoriales.html) – Guías paso a paso sobre temas variados
-- [Descargas](descargas.html) – Archivos útiles para experimentar
+- [Descargas](descargas.html) – Sección en fase beta, si la abres da un 404 hermosísimo...
 - [Archivos Retro](retro.html) – Software y curiosidades del pasado
 
 También recomiendo visitar el [directorio de archivos de Jake Groxgan](https://datajake.braillescreen.net), un repositorio masivo que incluye desde grabaciones y voces sintetizadas hasta software especializado. Algunos archivos pueden no ser compatibles con sistemas modernos, así que úsalos con precaución.
 
-Finalmente, si te interesa el contenido audiovisual, puedes visitar mi [canal de YouTube](http://www.youtube.com/@RJAproductions1109), donde subo tutoriales variados, experimentos y otros materiales relacionados con tecnología.
-  
+Gracias a todos los betatesters que probaron esta página simple.
