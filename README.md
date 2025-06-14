@@ -8,8 +8,9 @@ Me   llamo Alan. Soy una persona con discapacidad visual, entusiasta de la virtu
 
 - [Tutoriales](tutoriales.html) – Guías paso a paso sobre temas variados
 - [Descargas](descargas.html) – Sección en fase beta, si la abres da un 404 hermosísimo...
-- [Archivos Retro](retro.html) – Software y curiosidades del pasado
+- [Archivos Retro](retro.html) – Software y curiosidades del pasado. Actualmente en fase beta
 
 También recomiendo visitar el [directorio de archivos de Jake Groxgan](https://datajake.braillescreen.net), un repositorio masivo que incluye desde grabaciones y voces sintetizadas hasta software especializado. Algunos archivos pueden no ser compatibles con sistemas modernos, así que úsalos con precaución.
-
-Gracias a todos los betatesters que probaron esta página simple.
+También dejo aquí mi canal de youtube](https://youtube.com/@rjaproductions1109) con audiotutoriales, algunos viejos con calidad cuestionable, otros nuevos con explicación cuestionable.
+Gracias a todos los betatesters que probaron esta página y su funcionamiento. J.S.G
+Charlyweasley64 cw productions. Todos los derechos de escritura de esta página reservados. Cualquier contribución a esta página deberá ser enviada por github o telegram al ´ +1 660 493 64 75. 
